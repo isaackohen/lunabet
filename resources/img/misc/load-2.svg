@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background: rgb(46, 232, 11); display: block; position: relative; shape-rendering: auto;" width="46" height="46" preserveAspectRatio="xMidYMid" viewBox="0 0 46 46"><g transform="scale(0.18)"><defs><g id="stripe-0.7745483079807458">
+  <path d="M256 -128 L384 -128 L-128 384 L-128 256 Z" fill="#3aff15"></path>
+  <path d="M384 0 L384 128 L128 384 L0 384 Z" fill="#3aff15"></path>
+</g></defs>
+
+<g>
+  <use xlink:href="#stripe-0.7745483079807458" x="-256" y="0"></use>
+  <use xlink:href="#stripe-0.7745483079807458" x="0" y="0"></use>
+  <animateTransform attributeName="transform" type="translate" keyTimes="0;1" repeatCount="indefinite" dur="0.9900990099009901s" values="0 0; 256 0"></animateTransform>
+</g></g></svg>

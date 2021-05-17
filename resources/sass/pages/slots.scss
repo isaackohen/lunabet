@@ -1,0 +1,340 @@
+@import '../variables';
+
+.lineContainer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.svg_line {
+  stroke-width: 2.5px;
+}
+
+.theme--default .svg_line {
+    @include themed() {
+        stroke: lighten(t('secondary'), 1%) !important;
+    } 
+	stroke: #000;
+}
+
+.theme--dark .svg_line {
+    @include themed() {
+        stroke: lighten(t('secondary'), 1%) !important;
+    } 
+	stroke: #fff;
+}
+
+.game-content-slots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-content-slots .columnIconContainer {
+  position: relative;
+}
+
+.game-content-slots .columnIconContainer .scatter,
+.game-content-slots .columnIconContainer .wild {
+  position: absolute;
+  bottom: 13px;
+  z-index: 5;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 600;
+  font-size: 1.2em;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.theme--default .game-content-slots .columnIconContainer .scatter,
+.theme--default .game-content-slots .columnIconContainer .wild {
+  text-shadow: 1px 0 6px rgba(255, 255, 255, 0.55);
+}
+
+.theme--dark .game-content-slots .columnIconContainer .scatter,
+.theme--dark .game-content-slots .columnIconContainer .wild {
+  text-shadow: 1px 0 6px rgba(0, 0, 0, 0.55);
+}
+
+.game-content-slots .slotsContainer {
+  position: relative;
+}
+
+.game-content-slots .slotsContainer .lines {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  text-align: center;
+  left: -25px;
+}
+
+.game-content-slots .slotsContainer .lines .top,
+.game-content-slots .slotsContainer .lines .middle,
+.game-content-slots .slotsContainer .lines .bottom {
+  position: absolute;
+}
+
+.game-content-slots .slotsContainer .lines .top {
+  top: 0;
+}
+
+.game-content-slots .slotsContainer .lines .middle {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.game-content-slots .slotsContainer .lines .bottom {
+  bottom: 0;
+}
+
+.game-content-slots .slotsContainer .lines .line {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  margin-bottom: 5px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+
+.game-content-slots .slotsContainer .lines .line:last-child {
+  margin-bottom: 0;
+}
+
+.game-content-slots .slotsContainer .lines .line.disabled {
+  opacity: 0.5;
+}
+
+.game-content-slots .slotsContainer .lines:last-child {
+  left: unset;
+  right: -10px;
+}
+
+.theme--default .game-content-slots .slots {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 12px solid #ea6b00;
+  border-radius: 12px;
+  padding: 7px;
+}
+
+.theme--default .game-content-slots .slots .window {
+  position: relative;
+  overflow: hidden;
+  height: 327px;
+}
+
+.theme--default .game-content-slots .slots .outer-col {
+  width: 150px;
+  float: left;
+  display: flex;
+  justify-content: center;
+}
+
+.theme--default .game-content-slots .slots .column {
+  padding: 10px;
+  will-change: true;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.theme--default .game-content-slots .slots .column svg {
+  width: 80px;
+  height: 100px;
+  margin-bottom: 3px;
+}
+
+.theme--dark .game-content-slots .slots {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 12px solid #ea6b00;
+  border-radius: 12px;
+  padding: 7px;
+}
+
+.theme--dark .game-content-slots .slots .window {
+  position: relative;
+  overflow: hidden;
+  height: 327px;
+}
+
+.theme--dark .game-content-slots .slots .outer-col {
+  width: 150px;
+  float: left;
+  display: flex;
+  justify-content: center;
+}
+
+.theme--dark .game-content-slots .slots .column {
+  padding: 10px;
+  @include themed() {
+   background-color: lighten(t('body'), 5%) !important;
+   border-left: 1px solid darken(t('secondary'), 5%) !important;
+   border-right: 1px solid darken(t('secondary'), 5%) !important;
+  }   
+  will-change: true;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.theme--dark .game-content-slots .slots .column svg {
+  width: 80px;
+  height: 100px;
+  margin-bottom: 3px;
+}
+
+.game-content-slots .slots.spinning .outer-col:nth-of-type(2) .column {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+}
+
+.game-content-slots .slots.spinning .outer-col:nth-of-type(3) .column {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+.game-content-slots .slots.spinning .outer-col:nth-of-type(4) .column {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+
+.game-content-slots .slots.spinning .outer-col:nth-of-type(5) .column {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+
+.game-content-slots .slots.spinning .outer-col:nth-of-type(6) .column {
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+
+.game-content-slots .slots.spinning .column {
+  transition: scroll-color 3s ease;
+  -webkit-animation: scroll 3s cubic-bezier(0.5, 0, 0.5, 1) 1;
+          animation: scroll 3s cubic-bezier(0.5, 0, 0.5, 1) 1;
+}
+
+/* .game-content-slots .slots.spinning .column {
+  transition: scroll-color 3s ease;
+  -webkit-animation: scroll 3s cubic-bezier(0.5, 0, 0.5, 1) 1, blur 3s cubic-bezier(0.5, 0, 0.5, 1) 1;
+          animation: scroll 3s cubic-bezier(0.5, 0, 0.5, 1) 1, blur 3s cubic-bezier(0.5, 0, 0.5, 1) 1;
+} */
+
+@media (max-width: 1600px) {
+  .game-content-slots .slots .window .outer-col {
+    width: 100px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .game-content-slots .slots .window .outer-col {
+    width: 61px;
+  }
+
+  .game-content-slots .slots .window .outer-col .column svg {
+    width: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .game-content-slots .slots .window .outer-col {
+    width: 20%;
+  }
+}
+
+@-webkit-keyframes scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(0, calc(-100% + 328px), 0);
+  }
+
+  100% {
+    transform: translate3d(0, calc(-100% + 332px), 0);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(0, calc(-100% + 328px), 0);
+  }
+
+  100% {
+    transform: translate3d(0, calc(-100% + 332px), 0);
+  }
+}
+
+@-webkit-keyframes blur {
+  0% {
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+
+  10% {
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+
+  30% {
+    -webkit-filter: blur(6px);
+            filter: blur(6px);
+  }
+
+  60% {
+    -webkit-filter: blur(6px);
+            filter: blur(6px);
+  }
+
+  80% {
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+}
+
+@keyframes blur {
+  0% {
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+
+  10% {
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+
+  30% {
+    -webkit-filter: blur(6px);
+            filter: blur(6px);
+  }
+
+  60% {
+    -webkit-filter: blur(6px);
+            filter: blur(6px);
+  }
+
+  80% {
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+}

@@ -1,0 +1,455 @@
+   @import "resources/sass/variables";
+
+    .game-baccarat {
+        .game-content-baccarat {
+            .fa-baccarat-ribbon {
+                position: relative;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 18em;
+            }
+
+            display: flex;
+            flex-direction: column;
+            height: 900px !important;
+            min-height: 900px !important;
+            padding: 0;
+
+            @include themed() {
+                .baccarat-players {
+                    display: flex;
+                    flex-direction: row;
+
+                    .os-host {
+                        width: 0 !important;
+                        flex: 1;
+                    }
+
+                    .baccarat-players-container .os-host {
+                        width: 100% !important;
+                        flex: unset !important;
+                    }
+
+                    .baccarat-players-scrollable {
+                        width: 100%;
+
+                        .os-content {
+                            display: flex;
+                            flex-direction: row !important;
+                        }
+                    }
+
+                    .users .os-content {
+                        display: flex;
+                        align-items: baseline;
+                        flex-direction: column !important;
+                        position: relative;
+
+                        .empty {
+                            color: t('link');
+                            text-align: center;
+                            width: 80%;
+                            min-width: 85px;
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                            cursor: default;
+                            user-select: none;
+                        }
+                    }
+
+                    .tie {
+                        .header {
+                            border-bottom-color: #ec487f !important;
+                        }
+                    }
+
+                    .player {
+                        .header {
+                            border-bottom-color: #1652f0 !important;
+                        }
+                    }
+
+                    .banker {
+                        .header {
+                            border-bottom-color: #3bc248 !important;
+                        }
+                    }
+
+                    .baccarat-players-container {
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        min-width: 247px;
+                        user-select: none;
+
+                        .header {
+                            text-transform: uppercase;
+                            font-weight: 600;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            text-align: center;
+                            padding: 15px;
+                            border-bottom: 3px solid;
+                        }
+
+                        .users {
+                            height: 185px;
+
+                            .os-host {
+                                height: 100%;
+                            }
+
+                            .user {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                background: t('sidebar');
+                                transition: background 0.3s ease;
+                                cursor: pointer;
+                                padding: 15px;
+                                width: 100%;
+
+                                &:hover {
+                                    background: darken(t('sidebar'), 2%);
+                                }
+
+                                &:nth-child(even) {
+                                    background: t('input') !important;
+
+                                    &:hover {
+                                        background: darken(t('input'), 2%) !important;
+                                    }
+                                }
+
+                                .avatar {
+                                    margin-right: 5px;
+
+                                    img {
+                                        border-radius: 50%;
+                                        width: 32px;
+                                        height: 32px;
+                                    }
+                                }
+
+                                .name {
+                                    white-space: nowrap;
+                                    text-overflow: ellipsis;
+                                    width: 80px;
+                                    overflow: hidden;
+                                }
+
+                                .bet {
+                                    margin-left: auto;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .baccaratCardsPlayer, .baccaratCardsBanker {
+                position: absolute;
+                margin-top: 90px;
+
+                .score {
+                    padding: 3px 20px;
+                    border-radius: 40px;
+                    position: absolute;
+                    right: -40px;
+                    top: -15px;
+                    z-index: 15;
+                    @include themed() {
+                        color: t('textInverted');
+                        background: t('link');
+                    }
+                    transition: background 0.3s ease;
+                }
+
+                .score.win {
+                    background: #62ca5b;
+                    color: white;
+                }
+
+                .score.draw {
+                    background: #ffc645;
+                    color: white;
+                }
+            }
+
+            .baccaratCardsPlayer {
+                left: 100px;
+            }
+
+            .baccaratCardsBanker {
+                right: 150px;
+            }
+
+            .card {
+                position: relative;
+                top: 0;
+                left: 0;
+                width: 125px;
+                height: 200px;
+                display: flex;
+                flex-direction: column;
+                box-shadow: -15px 10px 20px 0 rgba(0, 0, 0, .1);
+                border: 3px solid transparent;
+                border-radius: 10px;
+                padding: 10px;
+                transition: border-color 0.3s ease;
+                font-size: 1.5em;
+                background: white;
+                cursor: default;
+                user-select: none;
+
+                .value {
+                    font-size: 1.6em;
+                    margin-bottom: -5px;
+                }
+            }
+
+            .card.win {
+                border-color: #62ca5b;
+            }
+
+            .card.draw {
+                border-color: #ffc645;
+            }
+
+            @include themed() {
+                .baccarat-game-field {
+                    height: 100%;
+                    position: relative;
+
+                    .timer {
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+
+                .baccarat-field {
+                    z-index: 30;
+                    user-select: none;
+
+                    .header {
+                        position: relative;
+                        z-index: 500;
+                        background: darken(t('sidebar'), 5%);
+                        text-shadow: 0 0 2px t('sidebar');
+                        padding: 10px;
+
+                        .right {
+                            position: absolute;
+                            right: 0;
+                            bottom: 0;
+
+                            button {
+                                font-size: 10px;
+                                margin-top: -23px;
+                                margin-right: 6px;
+                                text-transform: uppercase;
+                            }
+                        }
+                    }
+
+                    .bets {
+                        display: flex;
+                        flex-direction: row;
+                        width: 100%;
+
+                        .rows {
+                            flex-direction: column !important;
+                        }
+
+                        .content {
+                            display: flex;
+                            flex-direction: row;
+                            width: 100%;
+
+                            .cell {
+                                padding: 15px;
+                                margin: 0 1px 0 0;
+                                position: relative;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                text-align: center;
+                                width: 100%;
+                                height: 100%;
+                                cursor: pointer;
+                                transition: background 0.3s ease;
+                                background: darken(t('sidebar'), 2%);
+
+                                &:hover {
+                                    background: darken(t('sidebar'), 2.5%);
+                                }
+
+                                .title {
+                                    color: t('link');
+                                }
+
+                                .bet-stack {
+                                    position: absolute;
+                                    left: 0;
+                                    top: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    background: rgba(black, 0.65);
+
+                                    .user-chip {
+                                        position: absolute;
+                                        z-index: 2;
+                                        width: 22px;
+                                        height: 22px;
+                                        background: url(/img/misc/chip.svg) 0 0/cover no-repeat #828f9a;
+                                        border-radius: 50%;
+                                        text-align: center;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        font-size: 0.7em;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .deck {
+            position: absolute;
+            right: 100px;
+            top: 0;
+
+            div {
+                width: 100px;
+                height: 55px;
+                background: white;
+                border-bottom-left-radius: 8px;
+                padding: 5px;
+                border-bottom-right-radius: 8px;
+                box-shadow: 0 1px 0 rgba(0,0,0,.2);
+                position: absolute;
+                right: -45px;
+            }
+
+            div:first-child {
+                z-index: 5;
+            }
+
+            div:nth-child(2) {
+                margin-top: 2px;
+                z-index: 4;
+            }
+
+            div:nth-child(3) {
+                margin-top: 4px;
+                z-index: 3;
+            }
+
+            div:nth-child(4) {
+                margin-top: 6px;
+                z-index: 2;
+            }
+
+            div {
+                div {
+                    background: url('/img/misc/cardback.svg');
+                    width: 100%;
+                    height: calc(100% + 5px);
+                    position: relative;
+                    background-size: cover;
+                    background-position: bottom;
+                    top: -5px;
+                    border-bottom-left-radius: 6px;
+                    border-bottom-right-radius: 6px;
+                    right: unset;
+                }
+            }
+        }
+
+
+        [data-display-value="1"] {
+            background-color: #828f9a !important;
+        }
+
+        [data-display-value="10"] {
+            background-color: rgb(0, 188, 212) !important;
+        }
+
+        [data-display-value="100"] {
+            background-color: rgb(76, 175, 80) !important;
+        }
+
+        [data-display-value="1000"] {
+            background-color: rgb(139, 195, 74) !important;
+        }
+
+        [data-display-value="10000"] {
+            background-color: rgb(205, 220, 57) !important;
+        }
+
+        [data-display-value="100000"] {
+            background-color: rgb(192, 202, 51) !important;
+        }
+
+        [data-display-value="1000000"] {
+            background-color: rgb(255, 235, 59) !important;
+        }
+
+        [data-display-value="10000000"] {
+            background-color: rgb(251, 192, 45) !important;
+        }
+
+        [data-display-value="100000000"] {
+            background-color: rgb(255, 179, 0) !important;
+        }
+
+        [data-display-value="1000000000"] {
+            background-color: rgb(251, 140, 0) !important;
+        }
+
+        [data-display-value="10000000000"] {
+            background-color: rgb(244, 81, 30) !important;
+        }
+
+        [data-display-value="1000000000000"] {
+            background-color: #AA88FF !important;
+        }
+    }
+
+    @media(max-width: 1320px) {
+        .baccaratCardsPlayer {
+            left: 30px !important;
+        }
+
+        .baccaratCardsBanker {
+            right: 70px !important;
+        }
+    }
+
+    @media(max-width: 480px) {
+        .card {
+            width: 105px !important;
+            height: 190px !important;
+        }
+
+        .baccaratCardsPlayer {
+            left: 10px !important;
+        }
+
+        .baccaratCardsBanker {
+            right: 50px !important;
+        }
+    }

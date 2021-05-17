@@ -1,0 +1,119 @@
+@import "../variables";
+
+.game-content-tower {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.towerColumns {
+    @include themed() {
+        display: flex;
+        flex-direction: row;
+
+        .towerMultipliers {
+            .multiplier {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                user-select: none;
+                cursor: default;
+                height: 9.97%;
+                margin-right: 25px;
+                color: rgba(t('text'), 0.4);
+            }
+        }
+
+        .towerField {
+            display: flex;
+            flex-direction: column;
+
+            .towerRow {
+                display: flex;
+                flex-direction: row;
+                margin: 5px 0;
+
+                .cell {
+                    display: inline-flex;
+                    width: 50px;
+                    height: 45px;
+                    margin-right: 12px;
+                    background: rgba(255, 255, 255, 0.10);
+                    border-radius: 3px;
+                    border-bottom: 4px solid rgba(255, 255, 255, 0.25);
+                    transition: background 0.2s ease-in;
+                    align-items: center;
+                    justify-content: center;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+
+                    img {
+                        width: 30px;
+                        user-select: none;
+                        -webkit-user-drag: none;
+                    }
+                }
+
+                .cell.active {
+                    background: rgba(255, 255, 255, 0.25);
+                    border-bottom: 4px solid rgba(255, 255, 255, 0.10);
+                    cursor: pointer;
+                  &:hover {
+                    background: rgba(255, 255, 255, 0.15);
+                    border-bottom: 4px solid rgba(255, 255, 255, 0.05);
+                    }
+                 }
+
+                .cell.selected {
+                 border: 2px solid t('secondary');
+                 border-bottom: 2px solid t('secondary') !important;
+                 }
+
+                .cell.red {
+                    background: #db4437;
+                    img {
+                        width: 28px;
+                        user-select: none;
+                        -webkit-user-drag: none;
+                    }
+                }
+
+                .cell.green {
+                    background: #2ecc71;
+                }
+            }
+        }
+    }
+}
+
+.overview-render-target {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .towerColumns {
+        @include themed() {
+            .towerField {
+                .towerRow {
+                    margin: 2px 0;
+
+                    .cell {
+                        width: 30px;
+                        height: 25px;
+                        margin-right: 5px;
+                        border-radius: 1px;
+                     img {
+                        width: 11px;
+                        display: none;
+                        user-select: none;
+                        -webkit-user-drag: none;
+                    }
+                    }
+                }
+            }
+        }
+    }
+}

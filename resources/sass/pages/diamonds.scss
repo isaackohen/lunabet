@@ -1,0 +1,189 @@
+@import '../variables';
+
+$blue: #0e3d8c;
+$blue_border: #1e6eef;
+$green: #006b01;
+$green_border: #17d118;
+$light_blue: #02858b;
+$light_blue_border: #03bfc7;
+$pink: #ab186f;
+$pink_border: #ff4fb6;
+$purple: #430bb0;
+$purple_border: #7633fa;
+$red: #991029;
+$red_border: #ff1c44;
+$yellow: #81670e;
+$yellow_border: #fec916;
+
+.history-diamonds {
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    border-radius: 3px;
+    border: 1px solid transparent !important;
+
+    @include themed() {
+        color: rgba(t('text'), 0.4) !important;
+    }
+
+    &:last-child {
+        margin-right: 15px !important;
+    }
+}
+
+.history-diamonds.highlight {
+    @include themed() {
+        border-color: t('text') !important;
+    }
+}
+
+.game-content-diamonds {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overview-render-target {
+    .diamonds-grid {
+        width: 100%;
+
+        [data-diamonds-slot] {
+            width: 100%;
+            height: 65px;
+            margin-right: 8px;
+
+            img {
+                width: 60%;
+                height: 400%;
+                left: 20%;
+                position: absolute;
+                top: -145%;
+            }
+
+            .shadow {
+                opacity: 0 !important;
+            }
+        }
+    }
+}
+
+.diamonds-grid {
+    display: flex;
+    [data-diamonds-slot] {
+        display: inline-flex;
+        width: 160px;
+        height: 85px;
+        margin-right: 30px;
+        border-radius: 3px;
+        position: relative;
+        @include themed() {
+            background: t('body');
+            border-bottom: 15px solid darken(t('body'), 5%);
+            .shadow {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                transition: opacity 0.3s ease;
+                width: 60%;
+                height: 40%;
+                background: rgba(black, 0.2);
+                border-radius: 50%;
+                opacity: 0;
+            }
+        }
+        transition: background 0.3s ease, border-color 0.3s ease;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        img {
+            z-index: 1;
+            width: 100%;
+            height: 250%;
+            position: absolute;
+            top: -160%;
+        }
+    }
+
+    [data-diamonds-slot].blue {
+        background: $blue;
+        border-color: $blue_border;
+    }
+
+    [data-diamonds-slot].green {
+        background: $green;
+        border-color: $green_border;
+    }
+
+    [data-diamonds-slot].light_blue {
+        background: $light_blue;
+        border-color: $light_blue_border;
+    }
+
+    [data-diamonds-slot].pink {
+        background: $pink;
+        border-color: $pink_border;
+    }
+
+    [data-diamonds-slot].purple {
+        background: $purple;
+        border-color: $purple_border;
+    }
+
+    [data-diamonds-slot].red {
+        background: $red;
+        border-color: $red_border;
+    }
+
+    [data-diamonds-slot].yellow {
+        background: $yellow;
+        border-color: $yellow_border;
+    }
+
+    [data-diamonds-slot].dropShadow {
+        .shadow {
+            opacity: 1;
+        }
+    }
+}
+
+@media(max-width: 1600px) {
+    .diamonds-grid {
+        [data-diamonds-slot] {
+            width: 100px;
+            height: 65px;
+            margin-right: 20px;
+        }
+    }
+}
+
+@media(max-width: 1200px) {
+    .diamonds-grid {
+        [data-diamonds-slot] {
+            width: 71px;
+            height: 55px;
+            margin-right: 5px;
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .game-content-diamonds {
+        padding: 90px 0 !important;
+        padding-bottom: 120px !important;
+
+        .diamonds-grid {
+            [data-diamonds-slot] {
+                width: 15vw;
+                height: 55px;
+                margin-right: 3px;
+            }
+        }
+    }
+}

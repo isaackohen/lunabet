@@ -1,0 +1,250 @@
+@import "../variables";
+
+.game-content-roulette {
+    display: flex;
+    justify-content: center;
+
+    .roulette-wheel {
+        width: 300px;
+        height: 300px;
+        animation: rotating 15s linear infinite;
+    }
+
+    .rouletteCustomHistory {
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        height: 180px;
+        width: 45px;
+        border-radius: 5px;
+        overflow: hidden;
+        @include themed() {
+            background: darken(t('sidebar'), 10%);
+        }
+
+        .rouletteCustomHistoryElement {
+            padding: 0.955em 0;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            font-size: 0.9em;
+            font-weight: 600;
+            color: white;
+        }
+    }
+
+    .roulette-field {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+
+        .header {
+            position: relative;
+            margin-bottom: 15px;
+            z-index: 500;
+            @include themed() {
+                text-shadow: 0 0 2px t('sidebar');
+            }
+
+            .right {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+        }
+
+        .content {
+            display: flex;
+
+            .side {
+                display: inline-flex;
+                width: 7%;
+                flex-direction: column;
+
+                &:first-child .chip {
+                    height: 100%;
+                    width: 95%;
+                }
+            }
+
+            .numeric {
+                display: inline-flex;
+                flex-direction: column;
+                width: 100%;
+                .r {
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    .chip {
+        display: inline-flex;
+        width: 100%;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+        margin: 1px;
+        padding: 8px;
+        cursor: pointer;
+        opacity: 1;
+        position: relative;
+        transition: opacity 0.3s ease;
+
+        .bet-stack {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(black, 0.65);
+
+            .user-chip {
+                position: absolute;
+                z-index: 2;
+                width: 22px;
+                height: 22px;
+                background: url(/img/misc/chip.svg) 0 0/cover no-repeat #828f9a;
+                border-radius: 50%;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 0.7em;
+            }
+        }
+    }
+
+    .chip-disabled {
+        opacity: 0.5 !important;
+    }
+
+    .chip.bordered {
+        @include themed() {
+            border: 1px solid rgba(t('text'), 0.3);
+        }
+    }
+
+    .chip.red {
+        background: #fe3955;
+        color: white;
+    }
+
+    .chip.black {
+        background: #485163;
+        color: white;
+    }
+
+    .chip.green {
+        background: #62ca5b;
+        color: white;
+    }
+}
+
+[data-display-value="1"] {
+    background-color: rgb(41, 182, 246) !important;
+}
+
+[data-display-value="10"] {
+    background-color: rgb(0, 188, 212) !important;
+}
+
+[data-display-value="100"] {
+    background-color: rgb(76, 175, 80) !important;
+}
+
+[data-display-value="1000"] {
+    background-color: rgb(139, 195, 74) !important;
+}
+
+[data-display-value="10000"] {
+    background-color: rgb(205, 220, 57) !important;
+}
+
+[data-display-value="100000"] {
+    background-color: rgb(192, 202, 51) !important;
+}
+
+[data-display-value="1000000"] {
+    background-color: rgb(255, 235, 59) !important;
+}
+
+[data-display-value="10000000"] {
+    background-color: rgb(251, 192, 45) !important;
+}
+
+[data-display-value="100000000"] {
+    background-color: rgb(255, 179, 0) !important;
+}
+
+[data-display-value="1000000000"] {
+    background-color: rgb(251, 140, 0) !important;
+}
+
+[data-display-value="10000000000"] {
+    background-color: rgb(244, 81, 30) !important;
+}
+
+[data-display-value="100000000000"] {
+    background-color: #AA88FF !important;
+}
+
+.overview-render-target {
+    .roulette-wheel {
+        width: 200px;
+        margin-left: 50%;
+        transform: translate(-50%);
+        margin-top: 10px;
+    }
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .game-content-roulette {
+        .chip {
+            font-size: 0.9em;
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .game-content-roulette {
+        padding-bottom: 250px !important;
+
+        .roulette-wheel {
+            width: 200px;
+            height: 200px;
+        }
+
+        .chip {
+            font-size: 0.85em;
+            padding: 3px !important;
+        }
+
+        .rouletteCustomHistory {
+            right: 10px;
+            top: 10px;
+            transform: unset !important;
+        }
+    }
+}

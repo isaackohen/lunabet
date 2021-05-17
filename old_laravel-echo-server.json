@@ -1,0 +1,41 @@
+{
+	"authHost": "https://dev.lunabet.io",
+	"authEndpoint": "/broadcasting/auth",
+	"clients": [
+		{
+			"appId": "8b9dc186d6b2b833",
+			"key": "8149f070f403a299df6489f592064a8f"
+		}
+	],
+	"database": "redis",
+	"databaseConfig": {
+		"redis": {
+			"password": "DKDKdkdkddDD2"
+		},
+		"sqlite": {
+			"databasePath": "/database/laravel-echo-server.sqlite"
+		},
+		"listenWhishper": true,
+		"prefixWhishper": "whisper"
+	},
+	"devMode": false,
+	"host": null,
+	"port": "8443",
+	"protocol": "https",
+	"socketio": {},
+	"secureOptions": 67108864,
+	"sslCertPath": "/var/www/html/lunabet.io.pem",
+	"sslKeyPath": "/var/www/html/lunabet.io.key",
+	"sslCertChainPath": "",
+	"sslPassphrase": "",
+	"subscribers": {
+		"http": true,
+		"redis": true
+	},
+	"apiOriginAllow": {
+		"allowCors": true,
+		"allowOrigin": "https://localhost:443",
+		"allowMethods": "GET, POST",
+		"allowHeaders": "Origin, Content-Type, X-Auth-Token, X-Requested-With, Accept, Authorization, X-CSRF-TOKEN, X-Socket-Id"
+	}
+}

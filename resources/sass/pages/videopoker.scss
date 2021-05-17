@@ -1,0 +1,237 @@
+@import "../variables";
+
+$history-height: 76px;
+
+.game-content-videopoker {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+
+    button {
+        width: 200px;
+        left: 50%;
+        position: relative;
+        transform: translateX(-50%);
+    }
+
+    .history-videopoker {
+        display: flex;
+        flex-direction: column;
+
+        &:last-child {
+            margin-right: 15px !important;
+        }
+
+        @include themed() {
+            div {
+                text-align: center;
+            }
+
+            div:first-child {
+                text-transform: uppercase;
+                color: rgba(t('text'), 0.55);
+            }
+
+            div:last-child {
+                color: rgba(t('text'), 0.4);
+            }
+        }
+    }
+}
+
+.vpCards {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+
+    .vpCard.active {
+        &:hover {
+            top: -15px;
+            cursor: pointer;
+            * {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .vpCard.selected {
+        @include themed() {
+            box-shadow: 0 0 1px 3px t('secondary');
+        }
+
+        &:after {
+            content: 'HOLD';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%) rotateY(180deg);
+            padding: 1px 8px;
+            font-size: 0.7em;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            @include themed() {
+                box-shadow: 0 0 1px 3px t('secondary');
+                background: t('secondary');
+            }
+            color: white;
+        }
+    }
+
+    .vpCard {
+        display: inline-flex;
+
+        top: calc(50% - #{$history-height});
+        transform: translateY(-50%);
+
+        position: relative;
+        transform-style: preserve-3d;
+        width: 85px;
+        height: 140px;
+        margin-right: 75px;
+        @include themed() {
+            box-shadow: 0 0 1px 3px t('text');
+        }
+        border-radius: 3px;
+        transition: top 0.3s ease, box-shadow 0.3s ease;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        .face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .face.back {
+            background: url('/img/misc/cardback.svg');
+            background-size: cover;
+        }
+
+        .face.front {
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+
+            background: white;
+            color: black;
+
+            .vpCardValue {
+                font-size: 2em;
+            }
+
+            .vpCardType {
+                font-size: 1.5em;
+            }
+
+            .vpCardValue, .vpCardType {
+                user-select: none;
+                -webkit-user-drag: none;
+                cursor: default;
+            }
+        }
+    }
+}
+
+@media(max-width: 1500px) {
+    .vpCard {
+        margin-right: 14px !important;
+        width: 60px !important;
+        height: 100px !important;
+        border-radius: 2px !important;
+        @include themed() {
+            box-shadow: 0 0 1px 2px t('text');
+        }
+
+        .face.front {
+            padding: 10px !important;
+
+            .vpCardValue {
+                font-size: 1.5em !important;
+            }
+
+            .vpCardType {
+                font-size: 1em !important;
+            }
+        }
+    }
+}
+
+@media(max-width: 480px) {
+    .vpCard {
+        margin-right: 10px !important;
+        width: 35px !important;
+        height: 55px !important;
+        border-radius: 1px !important;
+        @include themed() {
+            box-shadow: 0 0 1px 2px t('text');
+        }
+
+        .face.front {
+            padding: 5px !important;
+
+            .vpCardValue {
+                font-size: 1em !important;
+            }
+
+            .vpCardType {
+                font-size: 0.5em !important;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .game-content-videopoker {
+        padding-top: 170px !important;
+
+        .vpCards {
+            .vpCard {
+                top: calc(50% - 120px);
+            }
+
+            .vpCard.active {
+                &:hover {
+                    top: calc(50% - 120px) !important;
+                }
+            }
+        }
+
+        button {
+            position: relative;
+            top: -88px;
+        }
+    }
+}
+
+.overview-render-target {
+    .vpCards {
+        padding-top: 55px !important;
+        .vpCard {
+            margin-right: 10px !important;
+            width: 35px !important;
+            height: 55px !important;
+            border-radius: 1px !important;
+            @include themed() {
+                box-shadow: 0 0 1px 2px t('text');
+            }
+
+            .face.front {
+                padding: 5px !important;
+
+                .vpCardValue {
+                    font-size: 1em !important;
+                }
+
+                .vpCardType {
+                    font-size: 0.5em !important;
+                }
+            }
+        }
+    }
+}

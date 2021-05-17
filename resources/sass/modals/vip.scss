@@ -1,0 +1,137 @@
+@import "../variables";
+
+.vip_bonus {
+    .vipDesc {
+        @include themed() {
+            color: t('text');
+        }
+    }
+
+    .bonus-image {
+        background-image: url('/img/misc/bonus-box.png');
+        background-size: cover;
+        position: relative;
+        height: 100px;
+
+        .btn {
+            position: absolute;
+            width: 50%;
+            right: 10px;
+            bottom: 10px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+    }
+
+    .progress {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        width: 40%;
+        height: 20px;
+        border-radius: 3px;
+
+        @include themed() {
+            background: darken(t('sidebar'), 3%);
+
+            .progress-bar {
+                height: 20px;
+                background: t('secondary');
+            }
+        }
+    }
+}
+
+.vip {
+    .vip-logo {
+        width: 15%;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .vipDesc {
+        @include themed() {
+            color: t('text');
+        }
+    }
+
+    .progress {
+        height: 25px;
+        border-radius: 3px;
+        margin: 2px;
+
+        @include themed() {
+            background: darken(t('sidebar'), 3%);
+
+            .progress-bar {
+                height: 25px;
+                background: url(/img/misc/load-2.svg);
+            }
+        }
+    }
+
+    .vipProgress {
+        display: flex;
+        flex-direction: row;
+        margin-top: 10px;
+        margin-bottom: 2.5em;
+
+        div {
+            display: inline-flex;
+            position: relative;
+            svg {
+                width: 17px;
+                height: 17px;
+                position: absolute;
+                margin-left: -20px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+
+        div:last-child {
+            margin-left: auto;
+        }
+    }
+
+    .expandableBlock {
+        margin-top: 15px;
+
+        @include themed() {
+            .expandableBlockHeader {
+                background: darken(t('sidebar'), 4%);
+                border-radius: 0.25rem;
+                padding: 0.75rem 1.5rem;
+                display: flex;
+                align-content: center;
+                cursor: pointer;
+
+                svg {
+                    width: 16px;
+                    height: 16px;
+                    margin-right: 10px;
+                }
+
+                i {
+                    position: absolute;
+                    right: 20px;
+                    margin-top: 3px;
+                }
+            }
+
+            .expandableBlockContent {
+                border: 1px solid darken(t('sidebar'), 2%);
+                background: darken(t('sidebar'), 1%);
+                border-top: none;
+                padding: 15px 23px;
+
+                ul {
+                    margin-bottom: 0;
+                    list-style: none;
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+}

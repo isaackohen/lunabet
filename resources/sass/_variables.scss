@@ -1,0 +1,53 @@
+@import "node_modules/mdb-ui-kit/src/scss/bootstrap/functions";
+@import "node_modules/mdb-ui-kit/src/scss/bootstrap/variables";
+@import "node_modules/mdb-ui-kit/src/scss/bootstrap/mixins/_breakpoints";
+@import "node_modules/mdb-ui-kit/src/scss/pro/_animate-extended";
+
+@import "themes";
+
+$font-family-sans-serif: "Proxima Nova Med", sans-serif;
+$font-size-base: 14px;
+$line-height-base: 1.5;
+
+$input-btn-focus-box-shadow: none;
+$btn-focus-box-shadow: none;
+$input-btn-focus-width: 0;
+
+@mixin blur($color, $opacity, $unsupportedOpacity, $blur) {
+    background-color: rgba($color, $unsupportedOpacity);
+    @supports ((-webkit-backdrop-filter: blur($blur)) or (backdrop-filter: blur($blur))) {
+        background-color: rgba($color, $opacity) !important;
+        -webkit-backdrop-filter: blur($blur);
+        backdrop-filter: blur($blur);
+    }
+}
+
+.text-success {
+    @include themed() {
+        color: t('green') !important;
+    }
+}
+
+.text-danger {
+    @include themed() {
+        color: t('red') !important;
+    }
+}
+
+.text-primary {
+    @include themed() {
+        color: t('secondary') !important;
+    }
+}
+
+.bg-success {
+    @include themed() {
+        background: t('green') !important;
+    }
+}
+
+.bg-danger {
+    @include themed() {
+        background: t('red') !important;
+    }
+}

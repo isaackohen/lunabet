@@ -1,0 +1,312 @@
+@import "../variables";
+@import "auth";
+@import "wallet";
+@import "vip";
+@import "tfa";
+
+
+.modal-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 40000;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-footer {
+    flex-wrap: inherit;
+    border-top: 0;
+}
+
+.modal-header {
+    @include themed() {
+            background: darken(t('sidebar'), 3%);
+}
+}
+.show ~ .modal-overlay {
+    pointer-events: all;
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal.show {
+    pointer-events: all;
+    visibility: visible;
+    transition: all 0.10s ease-in;
+    opacity: 1;
+
+    .content {
+        transform: scale(1) !important;
+        opacity: 1 !important;
+        display: table !important;
+        table-layout: fixed !important;
+        width: 100% !important;
+
+        .modal-scrollable-content {
+            max-height: 70vh;
+        }
+    }
+}
+
+.modal-content {
+    @include themed() {
+        color: t('text');
+        box-shadow: 2px 2px 5px 0 rgb(0 0 0 / 61%);
+        $sidebarone: t('sidebar');
+        $sidebartwo: t('sidebartwo');
+        background: linear-gradient($sidebarone, $sidebartwo);
+
+    }
+}
+
+.modal {
+    z-index: 40002 !important;
+    visibility: hidden;
+    backface-visibility: hidden;
+    opacity: 0;
+    border-radius: 8px;
+
+    input {
+        @include themed() {
+            border: 2px solid #21242b;
+            background: lighten(t('input'), 2%);
+            padding: 8px 15px;
+
+            &:not(:read-only), &:not(:disabled) {
+                &:hover, &:active {
+                    background: t('input');
+                }
+            }
+        }
+    }
+
+    @include themed() {
+        .content {
+            color: t('text');
+            background: url('/img/misc/carbon.png') repeat, t('body');
+            border: 1px solid rgba(t('sidebar'), 0.1);
+            padding: 20px;
+            width: 100%;
+            transform: scale(0.7);
+            opacity: 0;
+            height: fit-content;
+            min-height: 300px;
+        }
+
+        .ui-blocker {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 50;
+            @include blur(t('uiblock'), 0.4, 0.95, 25px);
+        }
+
+        .unavailable {
+            z-index: 4;
+            width: 100%;
+            height: 100%;
+            margin-top: 100px;
+            @include blur(t('uiblock'), 0.85, 0.95, 27px);
+            border-radius: 5px;
+            .slanting {
+                transform: skewY(-5deg) translateY(-50%);
+                padding: 25px;
+                position: absolute;
+                top: 50%;
+                background: rgba(t('text'), 0.05);
+                width: 100%;
+                .unavailableContent {
+                    font-size: 15px;
+                    transform: skewY(5deg);
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+.modal-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    z-index: 40001;
+    opacity: 0;
+    backdrop-filter: blur(11px);
+    background: rgba(black, 0.25);
+}
+
+.help {
+    .content {
+        min-height: unset !important;
+    }
+}
+
+.sticker-shop {
+    width: 600px;
+    max-height: 500px;
+    .content {
+        max-height: 500px;
+    }
+    .sticker-content {
+        max-height: 500px;
+    }
+
+    .sticker-pack {
+        display: inline-flex;
+        width: 265px;
+        height: 180px;
+        margin: 7px;
+
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        z-index: 1;
+        top: 0;
+        position: relative;
+        cursor: pointer;
+        border-radius: 5px;
+        box-shadow: rgba(black, 0.2) 0 4px 6px -1px, rgba(black, 0.12) 0px 2px 4px -1px;
+
+        img {
+            position: absolute;
+            width: 50%;
+            bottom: 5%;
+
+            &:nth-child(1) {
+                z-index: 6;
+                opacity: 1;
+                left: 10px;
+            }
+
+            &:nth-child(2) {
+                left: 20px;
+                z-index: 5;
+                opacity: 0.8;
+            }
+
+            &:nth-child(3) {
+                left: 30px;
+                z-index: 4;
+                opacity: 0.6;
+            }
+
+            &:nth-child(4) {
+                left: 40px;
+                z-index: 3;
+                opacity: 0.4;
+            }
+
+            &:nth-child(5) {
+                left: 50px;
+                z-index: 2;
+                opacity: 0.2;
+            }
+        }
+
+        &:hover {
+            top: -6px;
+        }
+
+        .name {
+            z-index: 10;
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            padding: 5px 10px;
+            @include blur(black, 0.5, 0.9, 20px);
+            border-radius: 3px;
+            color: white;
+        }
+
+    }
+
+    .sticker-overview {
+        display: flex;
+        height: 400px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+
+        .sticker-overview-sticker {
+            display: inline-flex;
+
+            img {
+                width: 115px;
+                height: 115px;
+            }
+
+            &:last-child {
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
+
+.rain_modal, .tip {
+    .select2 {
+        text-align: center !important;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        width: 150px !important;
+    }
+
+    .cc_label {
+        margin-top: 15px;
+        margin-bottom: 5px;
+        @include themed() {
+            color: rgba(t('text'), 0.65);
+        }
+    }
+
+    .btn {
+        margin-top: 15px;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .sticker-shop {
+        width: 100vw;
+
+        .sticker-pack {
+            width: 95% !important;
+
+            img {
+                width: 120px;
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .overview {
+        width: 100vw;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .modal-wrapper {
+        height: calc(100% - 55px);
+    }
+}
+
+@media(max-width: 400px) {
+    .modal {
+        width: 100vw !important;
+        border-radius: 0;
+    }
+}

@@ -1,0 +1,207 @@
+@import "../variables";
+
+.game-content-hilo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .game-history {
+        height: 140px;
+    }
+}
+
+.hilo-lower, .hilo-same, .hilo-higher {
+    color: white;
+    font-weight: 600;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: left !important;
+    padding-left: 10px;
+    align-items: unset !important;
+    justify-content: unset !important;
+
+    .label {
+        font-size: 1.0em;
+    }
+
+    .multiplier {
+        font-size: 0.85em;
+        font-weight: 300 !important;
+    }
+
+    .chance {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        .chanceLabel {
+            font-weight: 300 !important;
+        }
+    }
+}
+
+.hilo-lower {
+    background: #d33333 !important;
+}
+
+.hilo-same {
+    background: #555963 !important;
+}
+
+.hilo-higher {
+    background: #3bc248 !important;
+}
+
+.hilo_card {
+    background: white;
+    width: 200px;
+    height: 330px;
+    border-radius: 5px;
+    padding: 25px;
+    user-select: none;
+    cursor: default;
+    transition: color 0.3s ease;
+    position: relative;
+    box-shadow: 0 0 1px 1px rgba(black, 0.4);
+    margin-bottom: 140px;
+
+    #card_icon {
+        font-size: 2.5em;
+        position: relative;
+        bottom: 20px;
+    }
+}
+
+.hilo-card-value {
+    font-size: 4em;
+    position: relative;
+    bottom: 20px;
+}
+
+.hilo-replace {
+    position: absolute;
+    top: -19px;
+    right: -17px;
+    @include themed() {
+        background: t('draggableWindowHeader');
+        color: t('draggableWindowText');
+    }
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.card_history {
+    display: inline-block;
+    width: 80px;
+    height: 110px;
+    padding: 15px;
+    position: relative;
+    bottom: 0;
+    user-select: none;
+    margin-right: 5px;
+    background: white;
+
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    box-shadow: 0 0 1px 1px rgba(black, 0.4);
+
+    div {
+        font-size: 1.4em;
+        position: relative;
+        bottom: 8px;
+    }
+
+    svg {
+        position: relative;
+        bottom: 10px;
+    }
+}
+
+.overview-render-target {
+    .card_history {
+        width: 40px;
+        height: 60px;
+        padding: 6px;
+        margin-top: 5px;
+
+        div {
+            font-size: 0.8em;
+            bottom: 3px;
+        }
+
+        svg {
+            font-size: 0.6em;
+            bottom: 12px;
+        }
+    }
+}
+
+.card_history_black {
+    color: #2b2f3b;
+}
+
+.card_history_red {
+    color: #e86376;
+}
+
+@include media-breakpoint-down(sm) {
+
+    .game-content-hilo {
+        .game-history {
+            height: 90px;
+
+            .history-hilo {
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .hilo_card {
+        width: 120px;
+        height: 180px;
+        padding: 15px;
+        margin-bottom: 90px;
+
+        #card_icon {
+            font-size: 1.4em;
+            position: relative;
+            bottom: 13px;
+        }
+
+    }
+
+    .hilo-card-value {
+        font-size: 2.3em;
+        bottom: 10px;
+    }
+
+    .hilo-replace {
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.6em;
+        padding: 10px;
+    }
+
+    .card_history {
+        width: 40px;
+        height: 60px;
+        padding: 6px;
+
+        div {
+            font-size: 0.8em;
+            bottom: 3px;
+        }
+
+        svg {
+            bottom: 12px;
+            font-size: 0.6em;
+        }
+    }
+
+}

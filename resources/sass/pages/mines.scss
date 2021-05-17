@@ -1,0 +1,250 @@
+@import '../variables';
+
+.game-history {
+    display: flex;
+    height: 84px;
+}
+
+.history-mines {
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    padding: 9px;
+    border-radius: 3px;
+    line-height: 17px;
+
+    div:first-child {
+        font-size: 13px;
+    }
+
+    div:last-child {
+        font-size: 11px;
+    }
+
+    &:last-of-type {
+        margin-right: 15px !important;
+    }
+
+    @include themed() {
+        $color: rgba(t('text'), 0.25);
+        color: $color !important;
+        border: 1px solid $color !important;
+    }
+}
+
+.theme--default .history-mines {
+    color: black !important;
+}
+
+.game-content-mines {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mines_grid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(5, 65px);
+    grid-template-rows: repeat(5, 65px);
+    grid-auto-flow: column;
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    transform: translateY(-42px);
+
+    div.disabled {
+        background: rgba(255, 255, 255, 0.15);
+        border-bottom: 4px solid rgba(255, 255, 255, 0.05);
+        cursor: default !important;
+    }
+
+    div {
+        background: rgba(255, 255, 255, 0.1);
+        border-bottom: 4px solid rgba(255, 255, 255, 0.05);
+        text-align: center;
+        border-radius: 2px;
+        transition: background-color .2s ease-in, color .2 ease, top .2s ease-in, border-color .3s ease-in;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 65%;
+            user-select: none;
+            -webkit-user-drag: none;
+            display: none;
+            -webkit-animation-name: fadeInmines;
+            animation-name: fadeInmines;
+            -webkit-animation-duration: 0.01s;
+            animation-duration: 0.01s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+
+        &:hover {
+        background: rgba(255, 255, 255, 0.25);
+        border-bottom: 4px solid rgba(255, 255, 255, 0.15);
+        top: -2px;
+
+                }
+    }
+
+    [data-type='open'] {
+        img:last-child {
+            display: block;
+        }
+    }
+
+    [data-type='lose'] {
+        img:first-child {
+            display: block;
+        }
+    }
+
+    div.mines-0.selected {
+        background: #2ecc71 !important;
+        border-bottom-color: #079644 !important;
+        color: white !important;
+        -webkit-animation-name: rubberBand;
+        animation-name: rubberBand;
+        -webkit-animation-duration: 0.01s;
+        -webkit-animation-fill-mode: both;
+        animation-duration: 0.01s;
+        opacity: 1.0;
+        animation-fill-mode: both;
+      }
+
+    div.mines-1.selected {
+        background: #db4437 !important;
+        border-bottom-color: #981c12 !important;
+        color: white !important;   
+        opacity: 1.0;
+ -webkit-animation-name: wobble;
+  animation-name: wobble;
+  -webkit-animation-duration: 0.01s;
+  animation-duration: 0.01s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+
+    }
+
+    div.autoBetPick {
+        background: white;
+    }
+
+}
+
+.overview-render-target .mines_grid {
+    grid-template-columns: repeat(5, 35px);
+    grid-template-rows: repeat(5, 35px);
+    grid-gap: 7px;
+    transform: unset !important;
+    margin-bottom: 20px;
+    margin-top: 10px;
+
+    span {
+        font-size: 11px;
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .mines_grid {
+        grid-template-columns: repeat(5, 40px);
+        grid-template-rows: repeat(5, 40px);
+        grid-gap: 5px;
+
+        font-size: 13px;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .mines_grid {
+        grid-template-columns: repeat(5, 10vw);
+        grid-template-rows: repeat(5, 10vw);
+        grid-gap: 1.5vw;
+
+        font-size: 11px;
+    }
+
+    .game-content-mines {
+        margin-bottom: 120px;
+    }
+}
+
+
+             @-webkit-keyframes fadeInmines {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+  }
+
+              @keyframes fadeInmines {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+                } 
+
+
+  @-webkit-keyframes rubberBand {
+  0% {
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  }
+  30% {
+  -webkit-transform: scale3d(1.25, 0.75, 1);
+  transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+  -webkit-transform: scale3d(0.75, 1.25, 1);
+  transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+  -webkit-transform: scale3d(1.15, 0.85, 1);
+  transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+  -webkit-transform: scale3d(.95, 1.05, 1);
+  transform: scale3d(.95, 1.05, 1);
+  }
+  75% {
+  -webkit-transform: scale3d(1.05, .95, 1);
+  transform: scale3d(1.05, .95, 1);
+  }
+  100% {
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  }
+  }
+  @keyframes rubberBand {
+  0% {
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  }
+  30% {
+  -webkit-transform: scale3d(1.25, 0.75, 1);
+  transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+  -webkit-transform: scale3d(0.75, 1.25, 1);
+  transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+  -webkit-transform: scale3d(1.15, 0.85, 1);
+  transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+  -webkit-transform: scale3d(.95, 1.05, 1);
+  transform: scale3d(.95, 1.05, 1);
+  }
+  75% {
+  -webkit-transform: scale3d(1.05, .95, 1);
+  transform: scale3d(1.05, .95, 1);
+  }
+  100% {
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  }
+  } 

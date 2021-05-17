@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 1200 480" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10;" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="clip-Weekly_VIP_Bonus">
+      <rect width="440" height="180"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" y1="0.5" x2="1.013" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="clip-Promo_Code">
+      <rect width="365" height="180"/>
+    </clipPath>
+  </defs>
+  <g id="Weekly_VIP_Bonus" data-name="Weekly VIP Bonus" clip-path="url(#clip-Weekly_VIP_Bonus)" transform="matrix(2.746796, 0, 0, 2.746796, -2.291956, -1.01309)" style="">
+    <rect width="440" height="180" style="paint-order: fill; fill: rgb(57, 81, 189);"/>
+    <g transform="matrix(0.364061, 0, 0, 0.364061, 0.834411, 0.368826)">
+      <g id="Layer11">
+        <path d="M351.476,-559.874L1424.73,513.377" style="stroke-width: 4px; stroke-dasharray: 16, 8, 0, 0; fill: rgb(195, 255, 0); stroke-opacity: 0.19; stroke: rgb(10, 29, 111);"/>
+        <path d="M418.465,-626.863L1491.71,446.387" style="stroke-width: 4px; stroke-dasharray: 16, 8, 0, 0; fill: rgb(195, 255, 0); stroke-opacity: 0.19; stroke: rgb(10, 29, 111);"/>
+        <path d="M284.487,-492.885L1357.74,580.366" style="stroke-width: 4px; stroke-dasharray: 16, 8, 0, 0; fill: rgb(195, 255, 0); stroke-opacity: 0.19; stroke: rgb(10, 29, 111);"/>
+        <path d="M217.497,-425.895L1290.75,647.355" style="stroke-width: 4px; stroke-dasharray: 16, 8, 0, 0; fill: rgb(195, 255, 0); stroke-opacity: 0.19; stroke: rgb(10, 29, 111);"/>
+        <path d="M-50.459,-157.939L1022.79,915.311" style="stroke-width: 4px; stroke-dasharray: 16, 8, 0, 0; fill: rgb(195, 255, 0); stroke-opacity: 0.19; stroke: rgb(10, 29, 111);"/>
+        <path d="M16.53,-224.928L1089.78,848.322" style="stroke-width: 4px; stroke-dasharray: 16, 8, 0, 0; fill: rgb(195, 255, 0); stroke-opacity: 0.19; stroke: rgb(10, 29, 111);"/>
+        <path d="M83.519,-291.917L1156.77,781.333" style="stroke-width: 4px; stroke-dasharray: 16, 8, 0, 0; fill: rgb(195, 255, 0); stroke-opacity: 0.19; stroke: rgb(10, 29, 111);"/>
+        <path d="M150.508,-358.906L1223.76,714.344" style="stroke-width: 4px; stroke-dasharray: 16, 8, 0, 0; fill: rgb(195, 255, 0); stroke-opacity: 0.19; stroke: rgb(10, 29, 111);"/>
+        <path d="M-117.448,-90.95L955.802,982.3" style="stroke-width: 4px; stroke-dasharray: 16, 8, 0, 0; fill: rgb(195, 255, 0); stroke-opacity: 0.19; stroke: rgb(10, 29, 111);"/>
+        <path d="M-184.437,-23.961L888.813,1049.29" style="stroke-width: 4px; stroke-dasharray: 16, 8, 0, 0; fill: rgb(195, 255, 0); stroke-opacity: 0.19; stroke: rgb(10, 29, 111);"/>
+        <path d="M-251.426,43.028L821.824,1116.28" style="stroke-width: 4px; stroke-dasharray: 16, 8, 0, 0; fill: rgb(195, 255, 0); stroke-opacity: 0.19; stroke: rgb(10, 29, 111);"/>
+        <path d="M-318.415,110.017L754.835,1183.27" style="stroke-width: 4px; stroke-dasharray: 16, 8, 0, 0; fill: rgb(195, 255, 0); stroke-opacity: 0.19; stroke: rgb(10, 29, 111);"/>
+      </g>
+    </g>
+    <g id="Promo_Code" data-name="Promo Code" clip-path="url(#clip-Promo_Code)" transform="matrix(0.667783, 0, 0, 0.667783, 45.981747, 29.572104)" style="">
+      <rect id="Rectangle_88" data-name="Rectangle 88" width="209" height="104" transform="translate(139.03 38.263)" fill="url(#linear-gradient)" style="fill-opacity: 0.18;"/>
+      <g id="discount" transform="translate(30.4 -63.649)">
+        <path id="Path_367" data-name="Path 367" d="M168.126,118.909a11.514,11.514,0,0,1-11.5-11.5v-5.074H16.576v5.074a11.514,11.514,0,0,1-11.5,11.5H0v70.813H5.074a11.514,11.514,0,0,1,11.5,11.5V206.3H156.624v-5.074a11.514,11.514,0,0,1,11.5-11.5H173.2V118.909Z" transform="translate(0 0)" fill="#fff"/>
+        <path id="Path_368" data-name="Path 368" d="M337.526,118.909a11.514,11.514,0,0,1-11.5-11.5v-5.074H256V206.3h70.024v-5.074a11.514,11.514,0,0,1,11.5-11.5H342.6V118.909Z" transform="translate(-169.4 0)" fill="#f8f8f8"/>
+        <path id="Path_369" data-name="Path 369" d="M141.39,179.843c0-10.865,7.009-17.085,16.3-17.085s16.3,6.221,16.3,17.085c0,10.952-7.009,17.085-16.3,17.085S141.39,190.8,141.39,179.843ZM193.7,163.634H208.5l-41.881,61.331H151.816Zm-32.155,16.209c0-5.87-1.928-7.622-3.855-7.622s-3.855,1.752-3.855,7.622,1.928,7.623,3.855,7.623S161.542,185.714,161.542,179.843Zm24.8,28.914c0-10.865,7.01-17.085,16.3-17.085s16.3,6.221,16.3,17.085c0,10.952-7.009,17.085-16.3,17.085S186.337,219.709,186.337,208.757Zm20.152,0c0-5.87-1.928-7.622-3.855-7.622s-3.855,1.752-3.855,7.622,1.928,7.623,3.855,7.623S206.489,214.627,206.489,208.757Z" transform="translate(-93.56 -39.984)" fill="#fa690c"/>
+        <rect id="Rectangle_7" data-name="Rectangle 7" width="15.334" height="10.148" transform="translate(0 149.241)" fill="#ececec"/>
+        <rect id="Rectangle_8" data-name="Rectangle 8" width="15.334" height="10.148" transform="translate(157.866 149.241)" fill="#ececec"/>
+        <g id="Group_30" data-name="Group 30" transform="translate(86.6 123.65)">
+          <path id="Path_370" data-name="Path 370" d="M256,206.857l28.344-41.508H269.537L256,185.172Z" transform="translate(-256 -165.349)" fill="#e66c1d"/>
+          <path id="Path_371" data-name="Path 371" d="M290.557,248.23c-9.288,0-16.3,6.221-16.3,17.085,0,10.952,7.01,17.085,16.3,17.085s16.3-6.133,16.3-17.085C306.853,254.451,299.844,248.23,290.557,248.23Zm0,24.708c-1.928,0-3.855-1.752-3.855-7.623s1.928-7.622,3.855-7.622,3.855,1.752,3.855,7.622S292.484,272.938,290.557,272.938Z" transform="translate(-268.083 -220.193)" fill="#e66c1d"/>
+        </g>
+      </g>
+      <circle id="Ellipse_215" data-name="Ellipse 215" cx="160" cy="160" r="160" transform="translate(-105 -74)" fill="#fff" opacity="0.2" style="fill-opacity: 0.08;"/>
+    </g>
+  </g>
+</svg>

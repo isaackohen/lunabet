@@ -1,0 +1,93 @@
+@import "../variables";
+
+.game-content-crash {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .cashout {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 10px 15px;
+        border-radius: 3px;
+        @include themed() {
+            background: t('body');
+        }
+    }
+
+    .crashCustomHistory {
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        height: calc(100% - 70px);
+        width: 45px;
+        border-radius: 5px;
+        overflow: hidden;
+        @include themed() {
+            background: darken(t('sidebar'), 10%);
+        }
+
+        .crashCustomHistoryElement {
+            padding: 0.955em 0;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            font-size: 0.9em;
+            font-weight: 600;
+            color: black;
+        }
+    }
+
+    .game-history {
+        height: 10px;
+        padding: 0 !important;
+        position: relative;
+
+        .history-crash {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            will-change: width;
+
+            span {
+                position: absolute;
+                right: 5px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: white;
+                font-size: 0.65em;
+            }
+
+            @include themed() {
+                background: t('secondary');
+            }
+        }
+    }
+}
+
+@media(max-width: 1400px) {
+    .game-content-crash {
+        canvas {
+            width: 100%;
+        }
+    }
+}
+
+
+@include media-breakpoint-down(md) {
+    .game-content-crash {
+        .crashCustomHistory {
+            right: 10px;
+            top: 10px;
+            transform: unset !important;
+            height: 180px;
+        }
+    }
+}

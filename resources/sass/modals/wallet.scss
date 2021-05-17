@@ -1,0 +1,203 @@
+@import "../variables";
+@import "~select2/dist/css/select2.min.css";
+
+.wallet_modal {
+    
+    .walletMinDeposit {
+        display: flex;
+        align-content: center;
+        flex-direction: row;
+        background: linear-gradient(#0879cc, #0367af);
+        color: white;
+        padding: 8px;
+        margin: 15px;
+        border-radius: 4px;
+
+        .icon {
+            margin-right: 5px;
+            width: 5%;
+            text-align: center;
+        }
+    }
+
+    .walletNotification {
+        display: flex;
+        align-content: center;
+        flex-direction: row;
+        background: #db4437;
+        color: white;
+        padding: 15px;
+        margin-bottom: 15px;
+        margin-top: -15px;
+
+        .icon {
+            margin-right: 5px;
+            width: 5%;
+            text-align: center;
+        }
+    }
+
+    [data-wallet-tab-content="deposit"] {
+        width: 90%;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+
+        .btn {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        input {
+            margin-bottom: 10px;
+        }
+        
+        .select2 {
+            width: 90px !important;
+        }
+    }
+
+    [data-wallet-tab-content="withdraw"] {
+        width: 90%;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+
+        input {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        #withdraw-address, #withdraw-min {
+            @include themed() {
+                color: t('text');
+                font-size: 0.9em;
+                margin-bottom: 5px;
+            }
+        }
+
+        #withdraw-warning {
+            @include themed() {
+                color: t('text');
+                margin-top: 5px;
+            }
+        }
+
+        .select2 {
+            width: 170px !important;
+            background: transparent !important;
+        }
+    }
+
+    .select2 {
+        text-align: center;
+        position: relative;
+        background: transparent !important;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    #currency-label {
+        font-weight: 500;
+        margin-bottom: 3px;
+    }
+
+    #deposit-warning {
+        text-align: center;
+        font-size: 0.9em;
+    }
+
+    #withdraw-warning {
+        text-align: center;
+        font-size: 0.9em;
+    }
+
+    .qr {
+        width: 128px;
+        height: 128px;
+        background: white;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+
+        canvas {
+            width: 128px !important;
+            height: 128px !important;
+        }
+
+        .loader {
+            transform: scale(0.5);
+        }
+    }
+
+    .walletHistoryEmpty {
+        height: 220px;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+
+        svg {
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 6.5em;
+        }
+
+        div {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+    }
+}
+
+.theme--default {
+    .wallet_modal {
+        .qr {
+            box-shadow: 0 0 1px 2px black;
+        }
+    }
+}
+
+.demo-wallet {
+
+    .wallet-content {
+        margin-top: 15px;
+    }
+
+    @include themed() {
+        .notice {
+            border-radius: 3px;
+            border: 1px solid rgba(t('text'), 0.2);
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 95px;
+            flex-direction: column;
+        }
+    }
+
+}
+
+@media(max-width: 600px) {
+    .wallet_modal {
+        border-radius: 0 !important;
+    }
+}

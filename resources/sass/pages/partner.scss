@@ -1,0 +1,27 @@
+@import "../variables";
+@import "~datatables.net-bs4/css/dataTables.bootstrap4.min.css";
+
+.dataTable {
+    @include themed() {
+        color: t('text');
+
+        th, td {
+            border-top: 1px solid rgba(t('text'), 0.1);
+        }
+
+        thead th {
+            border-bottom: 2px solid rgba(t('text'), 0.17);
+        }
+    }
+}
+
+.dataTables_info {
+    position: absolute;
+    margin-top: -12px;
+}
+
+.dataTables_paginate {
+    .paginate_button {
+        margin: 5px;
+    }
+}

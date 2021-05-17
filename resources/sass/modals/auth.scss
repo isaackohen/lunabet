@@ -1,0 +1,54 @@
+@import "../variables";
+
+.auth {
+    display: unset;
+    
+    .auth-button-group {
+        display: flex;
+        button {
+            position: relative;
+            display: inline-flex;
+            width: 33.333%;
+            margin: 0 5px;
+            padding: 15px;
+            align-items: center;
+            justify-content: center;
+
+            i {
+                position: absolute;
+            }
+        }
+    }
+
+    .auth-footer {
+        text-align: center;
+        margin-top: 15px;
+
+        div:first-child {
+            font-size: 11px;
+            margin-bottom: 10px;
+        }
+
+        span:first-of-type, span:last-of-type {
+            @include themed() {
+                color: t('link');
+                cursor: pointer;
+                &:hover {
+                    color: t('link-hover');
+                }
+            }
+        }
+
+        .or {
+            display: inline-flex;
+            margin: 7px 5px 0;
+            cursor: default;
+            user-select: none;
+            @include themed() {
+                background: t('link');
+            }
+            width: 1px;
+            height: 9px;
+        }
+    }
+}

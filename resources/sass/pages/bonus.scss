@@ -1,0 +1,7 @@
+@import '../variables';
+
+$side-menu-width: 800px;
+
+.nav {
+    width: calc(100% + 55px) !important; 
+}

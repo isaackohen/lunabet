@@ -1,0 +1,114 @@
+@import "variables";
+
+.pageLoader {
+    z-index: 999999;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+
+    @include themed() {
+        background: t('header');
+    }
+
+    .error {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        margin-top: 120px;
+        text-align: center;
+    }
+
+    .loader {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: unset;
+        height: unset;
+        transform: translate(-50%, -50%);
+
+        div {
+            left: unset;
+            top: unset;
+            margin: unset;
+        }
+    }
+}
+
+.loader {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    div {
+        display: block;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        width: 200px;
+        height: 200px;
+        margin: -100px 0 0 -100px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: #4073e8;
+        -webkit-animation: pspin 2s linear infinite;
+        animation: pspin 2s linear infinite;
+    }
+
+    div:before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: #4073e8;
+        -webkit-animation: pspin 3s linear infinite;
+        animation: pspin 3s linear infinite;
+    }
+
+    div:after {
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: #4073e8;
+        -webkit-animation: pspin 1.5s linear infinite;
+        animation: pspin 1.5s linear infinite;
+    }
+}
+
+
+@-webkit-keyframes pspin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pspin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}

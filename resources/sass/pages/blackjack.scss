@@ -1,0 +1,336 @@
+@import '../variables';
+
+.game-content-blackjack {
+    .fa-blackjack-ribbon {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 18em;
+    }
+
+    .blackjack_card i {
+        font-size: 4.5em;
+        transform: translate(-50%, -50%);
+    }
+
+    min-height: 600px !important;
+}
+
+.arrowPlayer {
+    top: 485px;
+}
+
+.arrowSplit {
+    top: 320px;
+}
+
+.arrowContainer {
+    position: absolute;
+    left: 25px;
+    transform: rotate(-90deg);
+
+    .arrow {
+        animation-name: bounce;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+    }
+
+    .arrow {
+        animation-name: opacity;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        transition: opacity 0.2s ease;
+    }
+
+    .arrow:last-child {
+        animation-direction: reverse;
+        margin-top: -6px;
+    }
+
+    .arrow > div {
+        width: 16px;
+        height: 16px;
+        border-right: 4px solid #bebebe;
+        border-bottom: 4px solid #bebebe;
+        transform: rotate(45deg) translateZ(1px);
+    }
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.1;
+    }
+
+    20% {
+        opacity: 0.2;
+    }
+
+    30% {
+        opacity: 0.3;
+    }
+
+    40% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    60% {
+        opacity: 0.6;
+    }
+
+    70% {
+        opacity: 0.7;
+    }
+
+    80% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.9;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    10% {
+        transform: translateY(3px);
+    }
+
+    20% {
+        transform: translateY(6px);
+    }
+
+    30% {
+        transform: translateY(9px);
+    }
+
+    40% {
+        transform: translateY(12px);
+    }
+
+    50% {
+        transform: translateY(15px);
+    }
+
+    60% {
+        transform: translateY(18px);
+    }
+
+    70% {
+        transform: translateY(21px);
+    }
+
+    80% {
+        transform: translateY(24px);
+    }
+
+    90% {
+        transform: translateY(27px);
+    }
+
+    100% {
+        transform: translateY(30px);
+    }
+}
+
+.deck {
+    position: absolute;
+    right: 100px;
+    top: 0;
+
+    div {
+        width: 100px;
+        height: 115px;
+        background: white;
+        border-bottom-left-radius: 8px;
+        padding: 9px;
+        border-bottom-right-radius: 8px;
+        box-shadow: 0 1px 0 rgba(0,0,0,.2);
+        position: absolute;
+        right: -45px;
+    }
+
+    div:first-child {
+        z-index: 5;
+    }
+
+    div:nth-child(2) {
+        margin-top: 2px;
+        z-index: 4;
+    }
+
+    div:nth-child(3) {
+        margin-top: 4px;
+        z-index: 3;
+    }
+
+    div:nth-child(4) {
+        margin-top: 6px;
+        z-index: 2;
+    }
+
+    div {
+        div {
+            background: url('/img/misc/cardback.svg');
+            width: 100%;
+            height: calc(100% + 9px);
+            background-size: cover;
+            position: relative;
+            background-position: center;
+            top: -9px;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            right: unset;
+        }
+    }
+}
+
+.down {
+    background: url('/img/misc/cardback.svg') !important;
+    background-size: cover !important;
+}
+
+№dscore {
+    position: absolute;
+    bottom: 30px;
+}
+
+#pscore {
+    position: absolute;
+    bottom: 15px;
+}
+
+#phand, #dhand, #shand {
+    font-weight: 700;
+    position: absolute;
+    top: -250px;
+    white-space: nowrap;
+}
+
+#shand {
+    top: -190px;
+}
+
+.blackjack_card {
+    background: white;
+    color: black;
+    border: 10px solid white;
+    border-radius: 5px;
+    box-shadow: 0 0 1px black;
+    display: inline-block;
+    height: 135px;
+    margin: 0 5px;
+    position: absolute;
+    right: 0;
+    width: 95px;
+}
+
+.rank {
+    font-size: 18px;
+}
+
+.suit {
+    position: absolute;
+    top: 35px;
+    left: 7px;
+    font-size: 3px;
+}
+
+.blackjack_container {
+    position: absolute;
+    user-select: none;
+    left: 170px;
+    top: 50%;
+}
+
+.blackjack_score {
+    position: absolute;
+    left: 118px;
+    color: white;
+    transform: translateX(-50%);
+    padding: 5px 30px;
+    background: #080808;
+    border-radius: 15px;
+    z-index: 9;
+    user-select: none;
+    cursor: default;
+    margin-bottom: 80px;
+}
+
+.dealer {
+    top: 160px;
+}
+
+.player {
+    bottom: 7px;
+}
+
+.playerSplit {
+    bottom: 170px;
+}
+
+.insurance {
+    @include themed() {
+        position: absolute;
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+        @include blur(t('sidebar'), 0.65, 0.95, 5px);
+
+        .window {
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            .insurance-desc {
+                text-align: center;
+            }
+            .mt-2 {
+                display: flex;
+                flex-direction: row;
+                align-content: center;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .playerSplit {
+        bottom: 195px;
+    }
+
+    .player {
+        bottom: 35px;
+    }
+
+    .dealer {
+        top: 189px;
+    }
+}
+
+@media(max-width: 750px) {
+    .deck {
+        display: none;
+    }
+}

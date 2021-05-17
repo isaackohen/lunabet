@@ -1,0 +1,90 @@
+@import '../variables';
+
+.history-wheel {
+    border-radius: 3px;
+    width: 60px;
+    height: 3px;
+}
+
+.wheel-button {
+    text-shadow: 1px 1px 1px rgba(black, 0.4);
+}
+
+.wheel-button-green {
+    color: #3bc248;
+}
+
+.wheel-button-red {
+    color: #e76376;
+}
+
+.wheel-button-black {
+    color: #1c2028;
+}
+
+.wheel-button-yellow {
+    color: #fec545;
+}
+
+.wheel-history-green {
+    background: #3bc248;
+}
+
+.wheel-history-red {
+    background: #e76376;
+}
+
+.wheel-history-black {
+    background: #1c2028;
+}
+
+.wheel-history-yellow {
+    background: #fec545;
+}
+
+.game-content-wheel {
+    .game-history {
+        padding: 0 15px !important;
+        height: 30px;
+    }
+
+    .wheel-container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .wheel {
+        margin: unset !important;
+    }
+}
+
+.theme--dark {
+    .wheel-button-black {
+        color: $gray-600;
+    }
+
+    .wheel-history-black {
+        background: $gray-600;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .sWheel-wrapper {
+        width: 100% !important;
+    }
+
+    .wheel-container {
+    margin-bottom: 40px;
+    padding: 10px
+        }
+
+    .wheel {
+        width: 70% !important;
+    }
+
+    .game-content-wheel .resultPopup {
+        margin-top: 0 !important;
+    }
+}

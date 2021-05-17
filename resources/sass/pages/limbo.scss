@@ -1,0 +1,43 @@
+@import "../variables";
+
+.game-content-limbo {
+    display: flex;
+    flex-direction: column;
+
+    .result_mul {
+        display: flex;
+        margin-top: auto;
+        margin-bottom: auto;
+        align-items: center;
+        justify-content: center;
+        font-size: 10em;
+        transition: color 0.3s ease;
+    }
+
+    .limbo-footer {
+        width: 100%;
+        margin-bottom: 55px;
+    }
+
+    .game-history {
+        height: 53px;
+    }
+
+    input {
+        box-shadow: 0 0 1px 1px transparent;
+        transition: box-shadow 0.3s ease;
+    }
+
+    input.error {
+        box-shadow: 0 0 1px 1px #db4437;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .game-content-limbo {
+        .result_mul {
+            font-size: 5em;
+            margin-bottom: 15px;
+        }
+    }
+}
